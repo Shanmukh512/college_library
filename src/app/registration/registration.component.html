@@ -1,0 +1,21 @@
+<form (ngSubmit)="submit()" [formGroup]="login">
+    <input type="text" name="username" placeholder="Username" [(ngModel)]="student.username" formControlName="username">
+    <small *ngIf="login.get('username')?.hasError('required')&&login.get('username')?.touched">please enter username will be 4-10 characters</small>
+    <small *ngIf="login.get('username')?.hasError('maxLength')&&login.get('username')?.touched">enter less than 10 characters </small>
+    <small *ngIf="login.get('username')?.hasError('minLength')&&login.get('username')?.touched">enter more than 4 charaters </small><br>
+    <input type="text" name="name" placeholder="Name" [(ngModel)]="student.name" formControlName="name">
+    <small *ngIf="login.get('name')?.hasError('required')&&login.get('name')?.touched">please enter valid name </small>
+    <small *ngIf="login.get('name')?.hasError('maxLength')&&login.get('name')?.touched">enter less than 10 characters</small>
+    <small *ngIf="login.get('name')?.hasError('minLength')&&login.get('name')?.touched">enter more than 6 characters </small><br>
+    <input type="email" name="email" placeholder="Email" [(ngModel)]="student.email" formControlName="email"> 
+    <small *ngIf="login.get('email')?.hasError('required')&&login.get('email')?.touched">please enter valid email</small>
+    <small *ngIf="login.get('email')?.hasError('maxLength')&&login.get('email')?.touched">enter more than 10 characters</small>
+    <small *ngIf="login.get('email')?.hasError('minLength')&&login.get('email')?.touched">enter more than 4 characters</small>
+    <small *ngIf="login.get('email')?.hasError('email')&&login.get('email')?.touched">please enter valid email</small><br>
+    <input type="password" name="password" placeholder="Password" [(ngModel)]="student.password" formControlName="password">
+    <small *ngIf="login.get('password')?.hasError('required')&&login.get('password')?.touched">please enter valid password</small>
+    <small *ngIf="login.get('password')?.hasError('maxLength')&&login.get('password')?.touched">enter more than 10 characters</small>
+    <small *ngIf="login.get('password')?.hasError('minLength')&&login.get('password')?.touched">enter more than 4 characters</small>
+    <small *ngIf="login.get('password')?.hasError('pattern')&&login.get('password')?.touched">please enter valid password</small><br>
+    <button type="submit">submit</button>
+</form>
